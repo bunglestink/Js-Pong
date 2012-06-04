@@ -1,0 +1,47 @@
+<!doctype html>
+<html>
+<head>
+<title>Pong.</title>
+
+<style>
+body {background-color: #333;}
+canvas { 
+	border-style: solid;
+	border-color: #000;
+	border-width: 1px;
+	cursor: none;
+}
+#game-container { text-align: center; }
+</style>
+
+<script src="pong.js"></script>
+<script>
+
+window.onload = function() {
+	var startGame = document.getElementById('start-game');
+	var gameArea = document.getElementById('game-area');
+	
+	game.showTitle(gameArea);
+	
+	var enableStartGame = function() {
+		startGame.disabled = '';
+	};
+	
+	startGame.onclick = function() {
+		game.runGame(gameArea, enableStartGame);
+		startGame.disabled = 'disabled';
+	};
+};
+</script>
+
+</head>
+<body>
+<div id="game-container">
+	<canvas id="game-area" width="800" height="600">
+	</canvas>
+	<div>
+		<button id="start-game">Start Game</button>
+	</div>
+</div>
+</body>
+</html>
